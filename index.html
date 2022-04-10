@@ -1,52 +1,60 @@
 <script>
  // Computer choices Rock/Paper/Scissors
   
+  const computerChoice = ['Rock', 'Paper', 'Scissors'];
+  
   function computerPlay() {
-    const computerChoice = ['Rock', 'Paper', 'Scissors'];
         
     return computerChoice[Math.floor(Math.random() * computerChoice.length)];
   }
 
 // Game's single round
 
-  let playerSelection = window.prompt('Hello!', '');  
+  let playerSelection = prompt('Hello! You play Rock-Paper-Scissors. Enter Rock, Paper or Scissors', '').toUpperCase();
   
-  let computerSelection = computerPlay();
+  
+  let computerSelection = computerPlay().toUpperCase();
+  
+  //Makes computerChoice to upperCase
+
+  let computerChoiceUpperCase = computerChoice.map(element => {
+      return element.toString().toUpperCase();
+  })
 
   // Function compares variables computerSelection and playerSelection
 
   function singleRound() {
-    if (playerSelection === 'Rock') {
-      
-      if (computerSelection === 'Scissors') {
+    if (playerSelection === computerChoiceUpperCase[0]) {
+
+      if (computerSelection === computerChoiceUpperCase[2]) {
         return 'You win';
-      } else if (computerSelection === 'Paper') {
+      } else if (computerSelection === computerChoiceUpperCase[1]) {
         return 'You loose';
-      } else if (computerSelection === 'Rock') {
+      } else if (computerSelection === computerChoiceUpperCase[0]) {
         return 'Even score';
       } else {
         return 'Error';
       }
 
-    } else if (playerSelection === 'Paper') {
+    } else if (playerSelection === computerChoiceUpperCase[1]) {
       
-        if (computerSelection === 'Rock') {
+        if (computerSelection === computerChoiceUpperCase[0]) {
         return 'You win';
-      } else if (computerSelection === 'Scissors') {
+      } else if (computerSelection === computerChoiceUpperCase[2]) {
         return 'You loose';
-      } else if (computerSelection === 'Paper') {
+      } else if (computerSelection === computerChoiceUpperCase[1]) {
         return 'Even score';
       } else {
         return 'Error';
     }
 
-    } else if (playerSelection === 'Scissors') {
+    } else if (playerSelection === computerChoiceUpperCase[2]) {
       
-        if (computerSelection === 'Paper') {
+        if (computerSelection === computerChoiceUpperCase[1]) {
         return 'You win';
-      } else if (computerSelection === 'Rock') {
+      } else if (computerSelection === computerChoiceUpperCase[0]) {
         return 'You loose';
-      } else if (computerSelection === 'Scissors') {
+      } else if (computerSelection === computerChoiceUpperCase[2]) {
         return'Even score';
       } else {
         return 'Error';
@@ -57,9 +65,15 @@
     }
     
   }
+
+  // Output
+
   let result = singleRound();
-  console.log('Result:' + result);
-  console.log('Player: ' + playerSelection);
-  console.log('Computer: ' + computerSelection);
+  console.log('Result: ' + result);
+
+  let playerSelectionResult = playerSelection.substr(0, 1) + playerSelection.substr(1).toLowerCase();
+  let computerSelectionResult = computerSelection.substr(0, 1) + computerSelection.substr(1).toLowerCase();
+  console.log('Player: ' + playerSelectionResult);
+  console.log('Computer: ' + computerSelectionResult);
    
 </script>
