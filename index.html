@@ -1,4 +1,5 @@
 <script>
+
  // Computer choices Rock/Paper/Scissors
   
   const computerChoice = ['Rock', 'Paper', 'Scissors'];
@@ -8,7 +9,7 @@
     return computerChoice[Math.floor(Math.random() * computerChoice.length)];
   }
 
-// Game's single round
+// Game's single round starts
 
   let playerSelection = prompt('Hello! You play Rock-Paper-Scissors. Enter Rock, Paper or Scissors', '').toUpperCase();
   
@@ -24,40 +25,47 @@
   // Function compares variables computerSelection and playerSelection
 
   function singleRound() {
-    if (playerSelection === computerChoiceUpperCase[0]) {
 
+    // Player selects rock
+
+    if (playerSelection === computerChoiceUpperCase[0]) {
+      
       if (computerSelection === computerChoiceUpperCase[2]) {
-        return 'You win';
+        return 'You win, rock beats scissors!';
       } else if (computerSelection === computerChoiceUpperCase[1]) {
-        return 'You loose';
+        return 'You lose, paper beats rock!';
       } else if (computerSelection === computerChoiceUpperCase[0]) {
-        return 'Even score';
+        return 'Even score!';
       } else {
-        return 'Error';
+        return 'Something went wrong';
       }
+    
+    // Player selects paper
 
     } else if (playerSelection === computerChoiceUpperCase[1]) {
       
         if (computerSelection === computerChoiceUpperCase[0]) {
-        return 'You win';
+        return 'You win, paper beats rock!';
       } else if (computerSelection === computerChoiceUpperCase[2]) {
-        return 'You loose';
+        return 'You lose, scissors beats paper!';
       } else if (computerSelection === computerChoiceUpperCase[1]) {
-        return 'Even score';
+        return 'Even score!';
       } else {
-        return 'Error';
+        return 'Something went wrong';
     }
+
+    // Player selects scissors
 
     } else if (playerSelection === computerChoiceUpperCase[2]) {
       
         if (computerSelection === computerChoiceUpperCase[1]) {
-        return 'You win';
+        return 'You win, scissors beats paper!';
       } else if (computerSelection === computerChoiceUpperCase[0]) {
-        return 'You loose';
+        return 'You lose, rock beats scissors!';
       } else if (computerSelection === computerChoiceUpperCase[2]) {
-        return'Even score';
+        return 'Even score!';
       } else {
-        return 'Error';
+        return 'Something went wrong';
     }
       
     } else {
