@@ -19,19 +19,45 @@
     if (playerSelection === 'Rock') {
       
       if (computerSelection === 'Scissors') {
-        alert('You win');
+        return 'You win';
       } else if (computerSelection === 'Paper') {
-        alert('You loose');
+        return 'You loose';
       } else if (computerSelection === 'Rock') {
-        alert('Even score');
+        return 'Even score';
       } else {
-        alert('Error');
+        return 'Error';
       }
+
+    } else if (playerSelection === 'Paper') {
+      
+        if (computerSelection === 'Rock') {
+        return 'You win';
+      } else if (computerSelection === 'Scissors') {
+        return 'You loose';
+      } else if (computerSelection === 'Paper') {
+        return 'Even score';
+      } else {
+        return 'Error';
+    }
+
+    } else if (playerSelection === 'Scissors') {
+      
+        if (computerSelection === 'Paper') {
+        return 'You win';
+      } else if (computerSelection === 'Rock') {
+        return 'You loose';
+      } else if (computerSelection === 'Scissors') {
+        return'Even score';
+      } else {
+        return 'Error';
+    }
       
     } else {
-        result ='gfdg';
+      return "Something went wrong"
     }
     
   }
- 
+  let result = singleRound();
+  console.log('Result:' + result);
+   
 </script>
