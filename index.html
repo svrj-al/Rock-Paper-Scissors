@@ -1,10 +1,37 @@
 <script>
-  // Computer choices Rock/Paper/Scissors
+ // Computer choices Rock/Paper/Scissors
   
   function computerPlay() {
     const computerChoice = ['Rock', 'Paper', 'Scissors'];
         
     return computerChoice[Math.floor(Math.random() * computerChoice.length)];
+  }
+
+// Game's single round
+
+  let playerSelection = window.prompt('Hello!', '');  
+  
+  let computerSelection = computerPlay();
+
+  // Function compares variables computerSelection and playerSelection
+
+  function singleRound() {
+    if (playerSelection === 'Rock') {
+      
+      if (computerSelection === 'Scissors') {
+        alert('You win');
+      } else if (computerSelection === 'Paper') {
+        alert('You loose');
+      } else if (computerSelection === 'Rock') {
+        alert('Even score');
+      } else {
+        alert('Error');
+      }
+      
+    } else {
+        result ='gfdg';
+    }
+    
   }
  
 </script>
