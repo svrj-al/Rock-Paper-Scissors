@@ -1,7 +1,20 @@
 <script>
 
- // Computer choices Rock/Paper/Scissors
   
+
+function game () {
+
+  let playerResult = 0;
+  let computerResult = 0;
+  let resultFinal;
+  let resultRound;
+
+  for (let i = 0; i < 5; i++) {
+
+
+// Computer selects Rock/Paper/Scissors
+ 
+
   const computerChoice = ['Rock', 'Paper', 'Scissors'];
   
   function computerPlay() {
@@ -9,7 +22,7 @@
     return computerChoice[Math.floor(Math.random() * computerChoice.length)];
   }
 
-// Game's single round starts
+  // Players selects
 
   let playerSelection = prompt('Hello! You play Rock-Paper-Scissors. Enter Rock, Paper or Scissors', '').toUpperCase();
   
@@ -22,9 +35,12 @@
       return element.toString().toUpperCase();
   })
 
+// Game's single round starts
+
+
   // Function compares variables computerSelection and playerSelection
 
-  function singleRound() {
+  function playRound() {
 
     // Player selects rock
 
@@ -74,14 +90,44 @@
     
   }
 
-  // Output
+  
 
-  let result = singleRound();
-  console.log('Result: ' + result);
+  // Round Output
 
+   resultRound = playRound();
   let playerSelectionResult = playerSelection.substr(0, 1) + playerSelection.substr(1).toLowerCase();
   let computerSelectionResult = computerSelection.substr(0, 1) + computerSelection.substr(1).toLowerCase();
-  console.log('Player: ' + playerSelectionResult);
-  console.log('Computer: ' + computerSelectionResult);
-   
+
+  console.log('Round result: ' + resultRound); 
+  console.log('Player round choice: ' + playerSelectionResult);
+  console.log('Computer round choice: ' + computerSelectionResult);
+  console.log('');
+
+  
+
+  if (resultRound === ('You win, rock beats scissors!' || 'You win, paper beats rock!' || 'You win, scissors beats paper!')) {
+     playerResult++;
+     console.log('Player-result: ' + playerResult);
+     console.log('----');
+     
+  } else if (resultRound === ('You lose, paper beats rock!' || 'You lose, scissors beats paper!' || 'You lose, rock beats scissors!')) {
+      computerResult++;
+      console.log('Computer-result: ' + computerResult);
+      console.log('----');
+    
+  }
+
+}
+
+  console.log('----------');
+  if (playerResult > computerResult) {
+    console.log ('Final result: You won game!!!');
+    console.log ('Player: ' + playerResult + ' vs ' + 'Computer: ' + computerResult);
+  } else {
+    console.log ('Final result: You lost game!!!');
+    console.log ('Player: ' + playerResult + ' vs ' + 'Computer: ' + computerResult);
+  }
+  
+}
+
 </script>
