@@ -1,109 +1,21 @@
-<script>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Rock Paper Scissors Game</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h1>Rock Paper Scissors Game</h1>
+    <div id ="buttons">
+      <button id="rock"></button>
+      <button id="paper"></button>
+      <button id="scissors"></button>
+    </div>
+    <div id="container">Player: 0 vs Computer: 0</div>
+    <div id="containerTwo"></div>    
+    <footer>It's footer</footer>   
+    <script src="script.js"></script>
+  </body>
+</html>
 
-  // Game starts after typing game() inside browser's console
-  function game () {
-    let playerResult = 0;
-    let computerResult = 0;
-    let resultFinal;
-    let resultRound;
-
-    //Round starts
-    for (let i = 0; i < 5; i++) {
-    
-      // Computer selects Rock/Paper/Scissors
-      const computerChoice = ['Rock', 'Paper', 'Scissors'];
-      
-      function computerPlay() {    
-      return computerChoice[Math.floor(Math.random() * computerChoice.length)];
-      }
-
-      //Makes computerChoice to upperCase
-      let computerChoiceUpperCase = computerChoice.map(element => {
-          return element.toString().toUpperCase();
-      })
-
-      // Players selects
-      let playerSelection = prompt('Hello! You play Rock-Paper-Scissors. Enter Rock, Paper or Scissors', '').toUpperCase();
-      let computerSelection = computerPlay().toUpperCase();
-
-      // Function compares variables computerSelection and playerSelection
-      
-      function playRound() {
-        // Player selects rock
-        if (playerSelection === computerChoiceUpperCase[0]) {
-          
-          if (computerSelection === computerChoiceUpperCase[2]) {
-            return 'You win, rock beats scissors!';
-          } else if (computerSelection === computerChoiceUpperCase[1]) {
-            return 'You lose, paper beats rock!';
-          } else if (computerSelection === computerChoiceUpperCase[0]) {
-            return 'Even score!';
-          } else {
-            return 'Something went wrong';
-          }
-        
-        // Player selects paper
-        } else if (playerSelection === computerChoiceUpperCase[1]) {
-          
-            if (computerSelection === computerChoiceUpperCase[0]) {
-            return 'You win, paper beats rock!';
-          } else if (computerSelection === computerChoiceUpperCase[2]) {
-            return 'You lose, scissors beats paper!';
-          } else if (computerSelection === computerChoiceUpperCase[1]) {
-            return 'Even score!';
-          } else {
-            return 'Something went wrong';
-        }
-
-        // Player selects scissors
-        } else if (playerSelection === computerChoiceUpperCase[2]) {
-          
-            if (computerSelection === computerChoiceUpperCase[1]) {
-            return 'You win, scissors beats paper!';
-          } else if (computerSelection === computerChoiceUpperCase[0]) {
-            return 'You lose, rock beats scissors!';
-          } else if (computerSelection === computerChoiceUpperCase[2]) {
-            return 'Even score!';
-          } else {
-            return 'Something went wrong';
-          }
-          
-        } else {
-          return "Something went wrong"
-        } 
-      }
-
-      // Round Output
-      resultRound = playRound();
-      // Remove upper case
-      let playerSelectionResult = playerSelection.substr(0, 1) + playerSelection.substr(1).toLowerCase();
-      let computerSelectionResult = computerSelection.substr(0, 1) + computerSelection.substr(1).toLowerCase();
-      // Show round result
-      console.log('Round result: ' + resultRound); 
-      console.log('Player round choice: ' + playerSelectionResult);
-      console.log('Computer round choice: ' + computerSelectionResult);
-      console.log('');
-      // Win rounds counter
-      if (resultRound === ('You win, rock beats scissors!' || 'You win, paper beats rock!' || 'You win, scissors beats paper!')) {
-        playerResult++;        
-      } else if (resultRound === ('You lose, paper beats rock!' || 'You lose, scissors beats paper!' || 'You lose, rock beats scissors!')) {
-          computerResult++;        
-      }
-
-    }
-
-    // Compare rounds results and show game result
-    if (playerResult > computerResult) {
-      console.log ('Final result: You won game!!!');
-      console.log ('Player: ' + playerResult + ' vs ' + 'Computer: ' + computerResult);
-    } else if (playerResult < computerResult) {
-      console.log ('Final result: You lost game!!!');
-      console.log ('Player: ' + playerResult + ' vs ' + 'Computer: ' + computerResult);
-    } else {
-      console.log ('Final result: Even score!!!');
-      console.log ('Player: ' + playerResult + ' vs ' + 'Computer: ' + computerResult);
-    }
-  
-  }
-
-</script>
